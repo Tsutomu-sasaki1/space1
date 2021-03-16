@@ -1,7 +1,17 @@
-<h2>Sign up</h2>
+<h2>新規ユーザー登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_area :name, autofocus: true, placeholder:"例) furima太郎", maxlength:"40" %>
+  </div>
+
+    <div class="field">
+    <%= f.label :nickname %><br />
+    <%= f.text_area :nickname, autofocus: true,  placeholder:"例) furima", maxlength:"40" %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -21,8 +31,22 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :self_introduction %><br />
+    <%= f.text_area :self_introduction, autofocus: true, rows:"7" ,maxlength:"1000" %>
+  </div>
+
+      <div class="items-detail">
+        <div class="weight-bold-text">Style</div>
+        <div class="form">
+          <div class="weight-bold-text">
+            Category
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "登録" %>
   </div>
 <% end %>
 
