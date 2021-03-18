@@ -64,12 +64,16 @@ Things you may want to cover:
 | title               | string        | null: false                   |
 | text                | string        | null: false                   |
 | category_id         | integer       | null: false                   |
+| user_id             | integer       | null: false                   |
+| image               | text          | null: false                   |
+
 ### Association
 - has_many : post_likes
 - has_many : users, through: post_likes, source: :user, dependent: :destroy
 
 - has_many : images
-- belongs_to : comment
+- has_many : comments
+- belongs_to : user
 
 ## chats テーブル
 | Column              | Type          | Options                        |
