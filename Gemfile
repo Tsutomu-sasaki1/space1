@@ -56,3 +56,5 @@ gem 'devise'
 gem 'pry-rails'
 gem "pry-byebug", group: :development
 gem 'active_hash'
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
